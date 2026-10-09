@@ -1,58 +1,59 @@
 # UI/UX Pro MCP Server 🚀
 
-A high-performance, **ultra-token-efficient** Model Context Protocol (MCP) server for modern UI/UX design, spatial rhythm enforcement, domain color research, and high-end physics animations.
+A high-performance, **ultra-token-efficient** Model Context Protocol (MCP) server for modern UI/UX design, readable typography, domain color research, and award-winning web animations.
 
 Compatible with **Antigravity IDE**, **Cursor**, **Claude Desktop**, **Claude Code**, and **ChatGPT**.
 
 ---
 
-## 🌟 Key Upgrades & Highlights
+## 🌟 Key Features
 
-### 1. 🧠 Codebase Memory & Caching (Ek Baar Scan Karo, Phir Zero Re-reading!)
-- **Problem**: Har turn me LLM ko 15-20 files (tailwind.config, globals.css, package.json) dobara read karni padti thi, jisse thousands of tokens waste hote the.
-- **Solution**: `remember_project_codebase()` project ke typography, colors, CSS engine aur framework ko ek baar scan karke `.ui-ux-memory.json` me save kar leta hai.
-- Uske baad `get_project_memory()` **<1ms** me bas **~100 tokens** me pure project ka design DNA return karta hai bina kisi file ko re-read kiye!
+### 1. 📖 Guaranteed Text Readability & Typography Perfection
+- **Optimal Reading Bounds**: Strictly enforces **50–75 characters per line** (`max-w-prose` / `65ch`), ensuring long paragraphs never stretch uncomfortably across wide screens.
+- **Calibrated Line-Heights**:
+  - Headings: `leading-tight` (1.1–1.25) + `tracking-tight` (-0.025em) for punchy titles.
+  - Body Copy: `leading-relaxed` (1.6–1.7) for fatigue-free reading.
+  - Labels & Badges: `leading-none` + `tracking-wider uppercase`.
+- **WCAG AAA Contrast Rating**: Mathematically calculates relative luminance to prevent washed-out text on both light and dark backgrounds.
+- **Eye-Strain Halation Guard**: Eliminates harsh pure white on pure black glare using tinted surfaces (`#0B0F17`) and soft whites (`#F8FAFC`).
 
-### 2. 🎨 Domain-Aware Color Research (No Generic "AI Dark Mode" Clichés!)
-- **Problem**: AI aksar har cheez ko pure `#000000` par fluorescent pink/purple neon bana deta hai, jo cheap aur amateur AI template jaisa lagta hai.
-- **Solution**: `research_color_palette()` 192 product archetypes aur psychology datasets se research karta hai:
-  - **Healthcare / B2B**: Crisp, airy high-trust light mode (`#F8FAFC`, calming slate).
-  - **Luxury / High-End**: Warm stone, rich bronze & obsidian (`#121110`, warm charcoal).
-  - **Trading / Analytics**: Tinted deep slate navy (`#0B0F17`), never raw black.
-  - **60-30-10 Rule**: 60% Canvas, 30% Structural text/borders, 10% Strategic focal accent.
-  - **Anti-AI Cliché Guard**: Explicitly eliminates fluorescent purple-on-black traps.
+### 2. 🎬 Award-Winning Animation Recipes
+Production-grade, zero-jank animation code across 5 industry-standard libraries:
+1. **Framer Motion**: Shared layout transitions (`layoutId`), physics spring tabs, gesture drag, staggered child reveals.
+2. **GSAP + ScrollTrigger**: Scroll-scrubbed text reveals, pinned sections, zero-allocation magnetic button (`quickTo`).
+3. **Anime.js**: Staggered 2D grid ripple waves, SVG path morphing.
+4. **Barba.js**: Smooth page-to-page curtain wipes and crossfades without hard browser page reloads.
+5. **Rive Runtime**: 60fps vector state-machine animations reacting in real time to mouse hover and cursor coordinates.
 
-### 3. 🎬 Apple & Linear Grade Physics Animations
-- **Zero-Reflow GPU Composited**: Kabhi bhi `width`, `height`, ya `margin` animate nahi karta (jo jank karte hain). Sirf `transform` aur `opacity` use karta hai.
-- **Natural Spring Deceleration**: `cubic-bezier(0.16, 1, 0.3, 1)` physics curve.
-- **Presets**:
-  - `tactile_button`: Instantaneous 140ms physical press feel.
-  - `border_beam_card`: Subtle traveling gradient light border on card hover.
-  - `sliding_tab`: Native app style sliding pill tab indicator.
-  - `accordion_grid`: Zero-JS CSS grid `0fr -> 1fr` height expansion.
-  - `prefers-reduced-motion`: 100% accessible fallback for motion sensitivity.
+### 3. 🎨 Domain-Aware Color Research (Anti-AI Clichés)
+- Researches exact product domain across 192 archetypes in 60-30-10 balance.
+- Filters out generic AI clichés (no fluorescent purple on pure black).
+
+### 4. 🧠 Codebase Memory & Caching
+- Scans project once, stores design DNA in `.ui-ux-memory.json`.
+- Future tool calls retrieve design context in **~90 tokens** with zero file re-reading.
 
 ---
 
 ## 🛠️ Complete MCP Toolset
 
-| Tool Name | Kya Kaam Karta Hai | Output Tokens |
+| Tool Name | Purpose | Output Tokens |
 |---|---|---|
-| `remember_project_codebase` | Project ke design stack ko scan karke `.ui-ux-memory.json` me cache karta hai | ~120 |
-| `get_project_memory` | Cached design DNA recall karta hai (zero file reading) | ~90 |
-| `research_color_palette` | Prompt ke hisab se best 60-30-10 palette research karta hai (Light/Dark/Stone) | ~180 |
-| `get_premium_motion` | Apple/Linear grade spring bezier animations aur micro-interactions deta hai | ~120 |
-| `audit_ui_spacing` | 4px/8px grid errors, <44px buttons, cramped cards detect karta hai | ~150 |
-| `repair_ui_code` | Raw UI code ko automatically 8pt grid aur accessible modern UI me convert karta hai | ~220 |
-| `get_spacing_tokens` | Calibrated spacing scale (compact, balanced, spacious) aur container widths | ~140 |
-| `create_design_system` | Full token set + Google Font pair + Tailwind config generate karta hai | ~250 |
-| `get_ui_blueprint` | Navbar, Hero, Bento Grid, Pricing Card, Modal ka pixel-perfect code | ~280 |
-| `search_design_intelligence` | 79 design styles, 192 color palettes, 119 UX guidelines me fast search | ~110 |
-| `get_preflight_checklist` | Shipping se pehle 5-point QA checklist | ~90 |
+| `audit_and_fix_readability` | Audits text line-length (50-75ch), line-heights, and WCAG AAA contrast | ~160 |
+| `get_readability_standards` | Returns typography scales, leading, tracking, and curated font pairings | ~130 |
+| `get_award_animation` | Recipes for Framer Motion, GSAP ScrollTrigger, Anime.js, Barba.js, or Rive | ~220 |
+| `remember_project_codebase` | Scans and caches project design DNA in `.ui-ux-memory.json` | ~120 |
+| `get_project_memory` | Recalls cached design context instantly without re-reading files | ~90 |
+| `research_color_palette` | Researches 60-30-10 human color scheme (Light/Dark/Stone) | ~180 |
+| `audit_ui_spacing` | Detects 4px/8px rhythm errors, <44px buttons, and cramped cards | ~150 |
+| `repair_ui_code` | Repairs raw code into 8pt grid, accessible UI with micro-interactions | ~220 |
+| `get_ui_blueprint` | Navbar, Hero, Bento Grid, Pricing Card, Modal blueprints | ~280 |
+| `search_design_intelligence` | Search 79 styles, 192 color palettes, and 119 UX guidelines | ~110 |
+| `get_preflight_checklist` | Pre-ship 5-point quality QA checklist | ~90 |
 
 ---
 
-## ⚡ Setup Guides
+## ⚡ Client Setup
 
 ### Antigravity IDE (Configured ✅)
 Registered in `~/.gemini/config/mcp_config.json`.
@@ -76,7 +77,7 @@ Add to `~/.cursor/mcp.json` or `.cursor/mcp.json`:
 ```
 
 ### Claude Desktop
-Add to your Claude Desktop config file:
+Add to `claude_desktop_config.json`:
 ```json
 {
   "mcpServers": {

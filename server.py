@@ -1,8 +1,9 @@
 """UI/UX Pro MCP Server - Fast, Token-Optimized UI Design Engine.
 Features:
+- Guaranteed Text Readability & Typography Hierarchy (50-75ch bounds, WCAG AAA contrast, calibrated leading)
+- Award-Winning Web Animations (Framer Motion, GSAP ScrollTrigger, Anime.js, Barba.js, Rive)
 - Domain Color Research across 192 product profiles (No generic AI dark mode clichés)
 - Codebase Memory & Caching (.ui-ux-memory.json - scans once, never re-reads)
-- Apple/Linear Grade Physics Animations & Micro-interactions
 - 4px/8px Spatial Rhythm & Spacing Audits
 - Universal compatibility: Antigravity IDE, Cursor, Claude Desktop, Claude Code, ChatGPT
 """
@@ -21,26 +22,46 @@ from core.checklist import get_checklist
 from core.codebase_memory import scan_and_remember, get_memory
 from core.color_researcher import research_best_colors
 from core.motion_engine import get_motion_preset
-from core.three_engine import generate_3d_model_experience
+from core.readability_engine import audit_text_readability, get_readability_tokens
+from core.award_animation_engine import get_animation_recipe
 
 # Initialize FastMCP Server
 mcp = FastMCP("ui-ux-pro")
 
-# 0. 3D MODEL & WEBGL EXPERIENCES
+# 1. TEXT READABILITY & TYPOGRAPHY PERFECTION TOOLS
 @mcp.tool()
-def get_3d_experience(experience_type: str = "product_viewer", framework: str = "r3f") -> str:
+def audit_and_fix_readability(code_snippet: str) -> str:
     """
-    Generate accurate, production-ready 3D model viewers and procedural 3D web experiences.
-    experience_type: 'product_viewer' (accurate GLTF/GLB model viewer with studio lighting & auto-centering),
-                     'glass_orb' (organic liquid sphere with chromatic aberration & mouse follow),
-                     'interactive_globe' (3D cyber globe with atmosphere glow & coordinates),
-                     'interactive_3d_card' (pure 60fps CSS 3D perspective tilt without heavy WebGL).
-    framework: 'r3f' (React Three Fiber) or 'threejs' (Vanilla Three.js).
+    Audit and optimize text readability: guarantees 50-75 character reading bounds (max-w-prose),
+    line-heights (leading-relaxed for body, leading-tight for headings), optical tracking, and WCAG AAA contrast.
     """
-    result = generate_3d_model_experience(experience_type, framework)
+    result = audit_text_readability(code_snippet)
     return json.dumps(result, indent=2)
 
-# 1. CODEBASE MEMORY & CACHING TOOLS (Scan once, never re-read!)
+@mcp.tool()
+def get_readability_standards() -> str:
+    """
+    Get optimal typography tokens: font scales, leading, tracking, and curated readable font pairings.
+    """
+    result = get_readability_tokens()
+    return json.dumps(result, indent=2)
+
+# 2. AWARD-WINNING ANIMATION TOOLS (Framer Motion, GSAP, Anime.js, Barba.js, Rive)
+@mcp.tool()
+def get_award_animation(framework_or_name: str = "framer_motion") -> str:
+    """
+    Get production-ready, silky-smooth animation code.
+    framework_or_name options:
+      - 'framer_motion' (spring tabs, shared layoutId, gesture cards)
+      - 'gsap' (ScrollTrigger scrubbed text highlight, magnetic cursor)
+      - 'animejs' (staggered grid ripple wave, SVG path morphing)
+      - 'barba' (fluid page-to-page curtain wipes without page reloads)
+      - 'rive' (state-machine interactive vector animations reacting to mouse)
+    """
+    result = get_animation_recipe(framework_or_name)
+    return json.dumps(result, indent=2)
+
+# 3. CODEBASE MEMORY & CACHING TOOLS (Scan once, never re-read!)
 @mcp.tool()
 def remember_project_codebase(project_path: str = ".") -> str:
     """
@@ -59,7 +80,7 @@ def get_project_memory(project_path: str = ".") -> str:
     result = get_memory(project_path)
     return json.dumps(result, indent=2)
 
-# 2. COLOR RESEARCH & ANTI-AI-CLICHE TOOLS
+# 4. COLOR RESEARCH & ANTI-AI-CLICHE TOOLS
 @mcp.tool()
 def research_color_palette(prompt_or_niche: str, mode_preference: str = "auto") -> str:
     """
@@ -70,18 +91,7 @@ def research_color_palette(prompt_or_niche: str, mode_preference: str = "auto") 
     result = research_best_colors(prompt_or_niche, mode_preference)
     return json.dumps(result, indent=2)
 
-# 3. PREMIUM MOTION & PHYSICS
-@mcp.tool()
-def get_premium_motion(motion_name: str = "tactile_button") -> str:
-    """
-    Get Apple / Linear / Stripe grade GPU-accelerated micro-interactions.
-    motion_name options: 'tactile_button', 'border_beam_card', 'sliding_tab', 'accordion_grid', 'stagger_reveal'.
-    Uses cubic-bezier spring curves and zero-reflow transforms.
-    """
-    result = get_motion_preset(motion_name)
-    return json.dumps(result, indent=2)
-
-# 4. SPACING, AUDITING & FIXING
+# 5. SPACING, AUDITING & FIXING
 @mcp.tool()
 def audit_ui_spacing(code_snippet: str) -> str:
     """

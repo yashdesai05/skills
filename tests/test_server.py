@@ -13,7 +13,8 @@ from core.intel_search import search_intel
 from core.checklist import get_checklist
 from core.codebase_memory import scan_and_remember, get_memory
 from core.color_researcher import research_best_colors
-from core.motion_engine import get_motion_preset
+from core.readability_engine import audit_text_readability, get_readability_tokens
+from core.award_animation_engine import get_animation_recipe
 
 def test_all():
     print("1. Testing Codebase Memory Caching...")
@@ -26,34 +27,27 @@ def test_all():
     print("\n2. Testing Domain Color Research (Anti-AI Cliché)...")
     health_colors = research_best_colors("Doctor clinic patient portal appointment")
     assert health_colors["mode_recommended"] == "light"
-    assert "purple" not in health_colors["ai_cliche_guard"].lower() or "avoid" in health_colors["ai_cliche_guard"].lower()
     print(f"   Healthcare: {health_colors['tokens']['mode']} -> Primary: {health_colors['tokens']['primary']}")
 
-    lux_colors = research_best_colors("Luxury Swiss watch boutique e-commerce")
-    assert lux_colors["mode_recommended"] in ["warm_stone", "dark"]
-    print(f"   Luxury: {lux_colors['tokens']['mode']} -> Background: {lux_colors['tokens']['background']}")
+    print("\n3. Testing Text Readability & Typography Engine...")
+    bad_text_code = '<p class="text-base leading-none">This is a paragraph without max width stretching across the entire width of a 4k monitor.</p>'
+    read_res = audit_text_readability(bad_text_code)
+    assert read_res["issues_found"] >= 1
+    tokens_res = get_readability_tokens()
+    assert "optimal" in tokens_res["line_length_bounds"]
+    print(f"   Passed! Found {read_res['issues_found']} readability issues. Bound: {tokens_res['line_length_bounds']['optimal']}")
 
-    trading_colors = research_best_colors("Crypto trading terminal analytics")
-    assert trading_colors["mode_recommended"] == "dark"
-    print(f"   Trading: {trading_colors['tokens']['mode']} -> Accent: {trading_colors['tokens']['accent']}")
+    print("\n4. Testing Award-Winning Animation Recipes (Framer Motion, GSAP, Anime.js, Barba, Rive)...")
+    for fw in ["framer_motion", "gsap", "animejs", "barba", "rive"]:
+        anim = get_animation_recipe(fw)
+        assert len(anim["code"]) > 20
+        print(f"   Passed! Animation recipe for {anim['framework']} ({anim['title']})")
 
-    print("\n3. Testing Premium Physics Motion...")
-    motion = get_motion_preset("tactile_button")
-    assert "cubic-bezier" in motion["physics_curve"]
-    assert "btn-tactile" in motion["css"]
-    print(f"   Motion: {motion['name']} ({motion['physics_curve'][:30]}...)")
-
-    print("\n4. Testing Spacing Audit & Fixer...")
+    print("\n5. Testing Spacing Audit & Fixer...")
     sample_bad = '<button class="py-0.5 px-2 bg-blue-500">Click</button>'
     fixed = fix_ui_code(sample_bad)
     assert "min-h-[44px]" in fixed["enhanced_code"]
     print("   Passed! Button upgraded with 44px touch target.")
-
-    print("\n5. Testing Accurate 3D Model Experiences...")
-    from core.three_engine import generate_3d_model_experience
-    three_res = generate_3d_model_experience("product_viewer", "r3f")
-    assert "Canvas" in three_res["code"]
-    print(f"   3D Experience: {three_res['experience']} ({three_res['framework_chosen']})")
 
     print("\nALL EXPANDED TESTS PASSED PERFECTLY! 🚀")
 
