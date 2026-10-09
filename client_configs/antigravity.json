@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "ui-ux-pro": {
+      "command": "/home/yashdesai/.local/bin/uv",
+      "args": [
+        "run",
+        "--directory",
+        "/home/yashdesai/Documents/Projects/skills",
+        "server.py"
+      ],
+      "env": {}
+    }
+  }
+}

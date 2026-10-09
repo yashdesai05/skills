@@ -1,0 +1,11 @@
+{
+  "project_root": "/home/yashdesai/Documents/Projects/skills",
+  "framework": "unknown",
+  "css_engine": "css",
+  "has_tailwind": false,
+  "ui_libraries": [],
+  "fonts_detected": [],
+  "primary_colors": [],
+  "dark_mode_strategy": "class",
+  "spacing_convention": "8pt_grid"
+}
