@@ -21,9 +21,24 @@ from core.checklist import get_checklist
 from core.codebase_memory import scan_and_remember, get_memory
 from core.color_researcher import research_best_colors
 from core.motion_engine import get_motion_preset
+from core.three_engine import generate_3d_model_experience
 
 # Initialize FastMCP Server
 mcp = FastMCP("ui-ux-pro")
+
+# 0. 3D MODEL & WEBGL EXPERIENCES
+@mcp.tool()
+def get_3d_experience(experience_type: str = "product_viewer", framework: str = "r3f") -> str:
+    """
+    Generate accurate, production-ready 3D model viewers and procedural 3D web experiences.
+    experience_type: 'product_viewer' (accurate GLTF/GLB model viewer with studio lighting & auto-centering),
+                     'glass_orb' (organic liquid sphere with chromatic aberration & mouse follow),
+                     'interactive_globe' (3D cyber globe with atmosphere glow & coordinates),
+                     'interactive_3d_card' (pure 60fps CSS 3D perspective tilt without heavy WebGL).
+    framework: 'r3f' (React Three Fiber) or 'threejs' (Vanilla Three.js).
+    """
+    result = generate_3d_model_experience(experience_type, framework)
+    return json.dumps(result, indent=2)
 
 # 1. CODEBASE MEMORY & CACHING TOOLS (Scan once, never re-read!)
 @mcp.tool()
