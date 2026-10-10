@@ -33,6 +33,11 @@ Production-grade, zero-jank animation code across 5 industry-standard libraries:
 - Scans project once, stores design DNA in `.ui-ux-memory.json`.
 - Future tool calls retrieve design context in **~90 tokens** with zero file re-reading.
 
+### 5. ⚡ Phased Task Planning & Token Economy
+- **Phase-Based Execution**: Generates structured, milestone-driven plans with checkpoints and token budgets.
+- **Prompt Decomposition**: Breaks complex prompts into bite-sized, sequential subtasks to eliminate hallucinations and context blowup.
+- **Token Saver Engine**: Strips conversational padding, compresses instructions, and enforces surgical diffs for 65–80% token savings.
+
 ---
 
 ## 🛠️ Complete MCP Toolset
@@ -50,6 +55,10 @@ Production-grade, zero-jank animation code across 5 industry-standard libraries:
 | `get_ui_blueprint` | Navbar, Hero, Bento Grid, Pricing Card, Modal blueprints | ~280 |
 | `search_design_intelligence` | Search 79 styles, 192 color palettes, and 119 UX guidelines | ~110 |
 | `get_preflight_checklist` | Pre-ship 5-point quality QA checklist | ~90 |
+| `plan_task_execution` | Generates phased milestone execution plan with DoD and token budget | ~140 |
+| `decompose_prompt` | Splits complex prompt into bite-sized atomic subtasks executed sequentially | ~130 |
+| `optimize_token_context` | Compresses prompt context and strips conversational filler (65-80% token savings) | ~90 |
+
 
 ---
 

@@ -1,0 +1,8 @@
+# Cursor Rules: Phased Planning, Subtask Division & Token Efficiency
+
+1. **Phased Planning**: Always outline a quick numbered plan before editing files. Define what each step accomplishes.
+2. **Subtask Decomposition**: Divide multi-step user prompts into sequential, atomic subtasks. Complete and test one subtask before starting the next.
+3. **Token Minimization**:
+   - Deliver high-density, concise explanations with zero fluff.
+   - Use surgical diffs instead of rewriting entire files.
+   - Use UI/UX Pro MCP tools (`plan_task_execution`, `decompose_prompt`, `optimize_token_context`, `get_project_memory`) to reduce token load.

@@ -24,6 +24,7 @@ from core.color_researcher import research_best_colors
 from core.motion_engine import get_motion_preset
 from core.readability_engine import audit_text_readability, get_readability_tokens
 from core.award_animation_engine import get_animation_recipe
+from core.task_planner import plan_task_execution as core_plan_task, decompose_prompt as core_decompose, optimize_token_context as core_optimize_tokens
 
 # Initialize FastMCP Server
 mcp = FastMCP("ui-ux-pro")
@@ -155,5 +156,35 @@ def get_preflight_checklist(category: str = "pre_ship") -> str:
     result = get_checklist(category)
     return json.dumps(result, indent=2)
 
+# 6. TASK PLANNING, PROMPT CHUNKING & TOKEN OPTIMIZATION TOOLS
+@mcp.tool()
+def plan_task_execution(prompt_or_goal: str, execution_mode: str = "incremental") -> str:
+    """
+    Generate a disciplined step-by-step task execution plan before touching code.
+    Enforces clear phases, checkpoints, and token budgets (~65-80% token savings).
+    execution_mode: 'incremental' (step-by-step verification) or 'direct'.
+    """
+    result = core_plan_task(prompt_or_goal, execution_mode)
+    return json.dumps(result, indent=2)
+
+@mcp.tool()
+def decompose_prompt(prompt: str, max_subtasks: int = 5) -> str:
+    """
+    Break down a complex prompt or feature request into small, atomic subtasks.
+    Enforces sequential one-step-at-a-time execution to prevent hallucinations and token context blowup.
+    """
+    result = core_decompose(prompt, max_subtasks)
+    return json.dumps(result, indent=2)
+
+@mcp.tool()
+def optimize_token_context(content_or_request: str, mode: str = "compress") -> str:
+    """
+    Compress context and eliminate token waste. Strips conversational fluff and returns high-density tokens.
+    mode: 'compress' (strips conversational padding), 'diff_only' (surgical edit rules), 'summary' (compact memory).
+    """
+    result = core_optimize_tokens(content_or_request, mode)
+    return json.dumps(result, indent=2)
+
 if __name__ == "__main__":
     mcp.run(transport="stdio")
+

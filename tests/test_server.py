@@ -15,6 +15,7 @@ from core.codebase_memory import scan_and_remember, get_memory
 from core.color_researcher import research_best_colors
 from core.readability_engine import audit_text_readability, get_readability_tokens
 from core.award_animation_engine import get_animation_recipe
+from core.task_planner import plan_task_execution, decompose_prompt, optimize_token_context
 
 def test_all():
     print("1. Testing Codebase Memory Caching...")
@@ -48,6 +49,22 @@ def test_all():
     fixed = fix_ui_code(sample_bad)
     assert "min-h-[44px]" in fixed["enhanced_code"]
     print("   Passed! Button upgraded with 44px touch target.")
+
+    print("\n6. Testing Task Planning, Prompt Decomposition & Token Optimization...")
+    plan = plan_task_execution("Build an accessible dark mode dashboard with animated charts")
+    assert plan["status"] == "PLAN_GENERATED"
+    assert plan["total_phases"] >= 3
+    print(f"   Passed! Generated {plan['total_phases']} phased steps. Token savings: {plan['estimated_token_savings']}")
+
+    subtasks = decompose_prompt("Create user login form aur add validation aur animate button aur run tests")
+    assert subtasks["status"] == "DECOMPOSED"
+    assert subtasks["subtasks_count"] >= 3
+    print(f"   Passed! Prompt decomposed into {subtasks['subtasks_count']} atomic subtasks.")
+
+    opt = optimize_token_context("Please note that as mentioned earlier I would like to ask you to build a card component basically", mode="compress")
+    assert opt["mode"] == "compress"
+    assert opt["tokens_saved_est"] > 0
+    print(f"   Passed! Context compressed: {opt['original_tokens_est']} -> {opt['optimized_tokens_est']} tokens ({opt['savings_percentage']} saved).")
 
     print("\nALL EXPANDED TESTS PASSED PERFECTLY! 🚀")
 
